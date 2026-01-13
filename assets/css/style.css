@@ -777,21 +777,30 @@ label {
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 230, 167, 0.2);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 230, 167, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: var(--cream);
     border: 1px solid rgba(255, 230, 167, 0.3);
+    transition: all 0.3s ease;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
 }
 
 .social-icon:hover {
     background: var(--orange);
     color: var(--cream);
     border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 133, 0, 0.3);
 }
 
 .footer .text-muted {
