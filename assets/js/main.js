@@ -4,7 +4,6 @@
  */
 
 /* --- 1. Global State --- */
-/* --- 1. Global State --- */
 let state = {
     size: '500g',
     price: 2500,
@@ -22,39 +21,33 @@ function toggleSidebar() {
         sidebar.classList.toggle('open');
         document.body.classList.toggle('drawer-open');
 
-        // Overlay logic if we still rely on it for clicking outside, 
-        // though full screen sidebar might cover it. 
-        // Keeping it for consistency if it exists.
+        // Overlay logic
         if (overlay) {
             overlay.classList.toggle('active');
         }
     }
 }
 
+function closeDrawer() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    document.body.classList.remove('drawer-open');
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+}
+
 // Close sidebar on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-
-        if (sidebar && sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            document.body.classList.remove('drawer-open');
-            if (overlay) overlay.classList.remove('active');
-        }
+        closeDrawer();
     }
 });
 
-// Close sidebar on Overlay Click (if not handled in HTML onclick)
-// Adding explicit listener for robustness
+// Close sidebar on Overlay Click
 const overlayEl = document.getElementById('sidebar-overlay');
 if (overlayEl) {
-    overlayEl.addEventListener('click', () => {
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar && sidebar.classList.contains('open')) {
-            toggleSidebar();
-        }
-    });
+    overlayEl.addEventListener('click', closeDrawer);
 }
 
 /* --- 3. Product Logic --- */
@@ -135,4 +128,26 @@ document.addEventListener('DOMContentLoaded', () => {
             productSlides[currentProdSlide].classList.add('active');
         }, prodInterval);
     }
+
+    /* --- 7. Mobile Sidebar Navigation --- */
+    // Handle click on sidebar links to close drawer and scroll
+    // Handle click on sidebar links to close drawer and scroll
+    const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href');
+            if (!id || id === '#') return;
+
+            // Handle Top/Home specifically or standard sections
+            const targetEl = document.querySelector(id);
+            if (targetEl) {
+                e.preventDefault();
+                closeDrawer();
+
+                requestAnimationFrame(() => {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+        });
+    });
 });

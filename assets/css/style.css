@@ -299,6 +299,7 @@ hr,
         transform: translateX(-100%);
         z-index: 10000;
         /* Highest z-index */
+        pointer-events: auto;
         border-right: none;
         overflow-y: auto;
     }
