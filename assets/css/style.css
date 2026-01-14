@@ -9,42 +9,42 @@
     --green: #386641;
     --cream: #ffe6a7;
 
-    /* Semantic Mappings for Layout */
+    /* Semantic Mappings */
     --color-bg: var(--cream);
     --color-surface: var(--cream);
     --color-text-main: var(--green);
     --color-text-muted: rgba(56, 102, 65, 0.8);
-    /* Green with opacity */
     --color-border: var(--green);
-
     --color-primary: var(--green);
     --color-accent: var(--orange);
-    --color-accent-hover: rgba(251, 133, 0, 0.9);
 
     /* Typography */
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --font-heading: 'Playfair Display', Georgia, serif;
 
-    /* Spacing */
+    /* Spacing (Fluid with Clamp) */
     --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 32px;
-    --spacing-xl: 64px;
+    --spacing-sm: clamp(0.5rem, 1vw, 0.8rem);
+    --spacing-md: clamp(1rem, 2vw, 1.5rem);
+    --spacing-lg: clamp(2rem, 4vw, 3rem);
+    --spacing-xl: clamp(3rem, 6vw, 5rem);
 
     /* Layout */
-    --container-width: 1200px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
+    --container-width: 1440px;
+    /* Increased max-width for large screens */
+    --sidebar-width: 260px;
+    --radius-md: clamp(8px, 1.5vw, 12px);
+    --radius-lg: clamp(12px, 2vw, 20px);
     --radius-full: 999px;
 
     /* Effects */
     --shadow-sm: 0 4px 6px rgba(56, 102, 65, 0.1);
-    --shadow-md: 0 10px 20px rgba(56, 102, 65, 0.15);
 }
 
 /* 2. Reset & Base Styles */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,6 +57,41 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    /* Prevent horizontal scroll */
+}
+
+/* Scroll Lock caused by sidebar */
+body.sidebar-open {
+    overflow: hidden !important;
+}
+
+/* Base Typography Updates */
+h1 {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+}
+
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+h3 {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+h4,
+h5,
+h6 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+p,
+li,
+span,
+a,
+button,
+input {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
 }
 
 section {
@@ -89,12 +124,15 @@ ul {
     list-style: none;
 }
 
-img {
+img,
+video,
+svg {
     max-width: 100%;
+    height: auto;
+    object-fit: cover;
     display: block;
 }
 
-/* Accent lines / dividers */
 hr,
 .divider {
     border: 0;
@@ -103,13 +141,121 @@ hr,
     opacity: 0.35;
 }
 
-/* 3. Utility Classes */
+/* 3. Layout Grid System (Desktop First -> Mobile) */
+.layout-wrapper,
+.layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    min-height: 100vh;
+    gap: 0;
+    /* No gap between sidebar and content */
+}
+
+/* Sidebar Styling - Sticky Desktop */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    /* Modern viewport unit */
+    width: 100%;
+    background: var(--green);
+    color: var(--cream);
+    z-index: 1000;
+    padding: 0;
+    overflow: hidden;
+    /* Container doesn't scroll */
+    border-right: none;
+    /* Removed border */
+}
+
+/* Sidebar Inner (Handles Scrolling) */
+.sidebar-inner {
+    height: 100%;
+    overflow-y: auto;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 230, 167, 0.2);
+    /* Border moved here if needed or removed */
+}
+
+/* Main Content Styling */
+.main-content,
+.main {
+    position: relative;
+    background: var(--cream);
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    /* Reset margins */
+    min-width: 0;
+    /* Fix grid overflow */
+    border-left: none;
+}
+
+/* Mobile Layout (Tablet and below) */
+/* Mobile Layout (Tablet and below) */
+@media (max-width: 1024px) {
+
+    .layout-wrapper,
+    .layout {
+        display: block;
+        /* Remove grid to prevent reservation */
+    }
+
+    .main-content,
+    .main {
+        width: 100%;
+        margin-left: 0;
+        z-index: 1;
+        /* Ensure lower than sidebar */
+    }
+
+    .sidebar {
+        position: fixed;
+        inset: 0;
+        /* Full screen coverage */
+        width: 100vw;
+        height: 100vh;
+        transform: translateX(-100%);
+        z-index: 10000;
+        /* Highest z-index */
+        border-right: none;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* 4. Utility Classes & Typography */
 .container {
+    width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
+/* Fluid Typography using clamp() */
+/* Fluid Typography Redefines (ensuring specific classes match) */
+.hero-title {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    color: var(--cream);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.3rem);
+    color: #fff;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+/* Flex Utilities */
 .flex {
     display: flex;
 }
@@ -130,6 +276,10 @@ hr,
     align-items: center;
 }
 
+.items-start {
+    align-items: flex-start;
+}
+
 .gap-sm {
     gap: var(--spacing-sm);
 }
@@ -146,6 +296,10 @@ hr,
     text-align: center;
 }
 
+.text-left {
+    text-align: left;
+}
+
 .w-full {
     width: 100%;
 }
@@ -158,10 +312,40 @@ hr,
     margin-bottom: var(--spacing-md);
 }
 
-.text-left {
-    text-align: left;
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
 }
 
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.relative {
+    position: relative;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+    opacity: 0.8;
+}
+
+/* Mobile Visibility */
 .hidden-mobile {
     display: block;
 }
@@ -170,7 +354,7 @@ hr,
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hidden-mobile {
         display: none !important;
     }
@@ -180,26 +364,62 @@ hr,
     }
 }
 
-/* 4. Left Sidebar Navigation (Desktop Fixed) */
-.sidebar {
-    position: fixed;
+/* 5. Mobile Header */
+.mobile-header {
+    display: none;
     top: 0;
-    left: 0;
-    width: 260px;
-    height: 100vh;
+    width: 100%;
+    height: 60px;
     background: var(--green);
-    /* BRAND OVERRIDE */
     color: var(--cream);
-    /* BRAND OVERRIDE */
-    border-right: 1px solid rgba(255, 230, 167, 0.2);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    padding: var(--spacing-lg);
-    overflow-y: auto;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    padding: 0 var(--spacing-md);
+    align-items: center;
+    gap: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 230, 167, 0.2);
 }
 
+.mobile-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.close-sidebar {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: rgba(255, 230, 167, 0.8);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    cursor: pointer;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(56, 102, 65, 0.6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 6. Sidebar Content */
 .sidebar-header {
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -293,8 +513,6 @@ hr,
 
 .btn-whatsapp-sidebar:hover {
     opacity: 0.92;
-    background: var(--orange);
-    /* Keep bg same, rely on opacity */
 }
 
 .btn-whatsapp-sidebar span {
@@ -307,73 +525,6 @@ hr,
     font-weight: 700;
     margin-top: 2px;
     color: rgba(60, 40, 10, 0.6);
-    /* Darker text for readability on orange */
-}
-
-/* 5. Main Content Wrapper */
-.main-content {
-    margin-left: 260px;
-    width: calc(100% - 260px);
-    position: relative;
-    min-height: 100vh;
-    background: var(--cream);
-}
-
-/* 6. Mobile Header (Hidden Desktop) */
-.mobile-header {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: var(--green);
-    color: var(--cream);
-    z-index: 999;
-    padding: 0 var(--spacing-md);
-    align-items: center;
-    gap: var(--spacing-md);
-    border-bottom: 1px solid rgba(255, 230, 167, 0.2);
-}
-
-.mobile-brand-name {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--cream);
-}
-
-.menu-toggle {
-    background: none;
-    border: none;
-    color: var(--cream);
-    cursor: pointer;
-}
-
-.close-sidebar {
-    align-self: flex-end;
-    background: none;
-    border: none;
-    color: rgba(255, 230, 167, 0.8);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-    cursor: pointer;
-}
-
-.sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(56, 102, 65, 0.6);
-    /* Greenish dim */
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
-
-.sidebar-overlay.active {
-    opacity: 1;
-    visibility: visible;
 }
 
 /* 7. Components & Buttons */
@@ -407,30 +558,35 @@ button.primary:hover {
     border-color: var(--orange);
 }
 
-.btn-outline,
-.btn-secondary,
-button.secondary {
-    background: transparent;
-    border: 2px solid var(--green);
-    color: var(--green);
+.btn-whatsapp-lg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--orange);
+    color: var(--cream);
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.2s;
 }
 
-.btn-outline:hover,
-.btn-secondary:hover,
-button.secondary:hover {
-    opacity: 0.92;
-    background: rgba(56, 102, 65, 0.1);
+.btn-whatsapp-lg:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
-/* 6. Hero Section */
+/* 8. Hero Section */
 .hero-section {
     position: relative;
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) 0;
     overflow: hidden;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
 }
 
 .hero-slider {
@@ -462,7 +618,6 @@ button.secondary:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Dark Green -> Brown overlay for contrast with light text */
     background: linear-gradient(180deg, rgba(56, 102, 65, 0.8), rgba(251, 133, 0, 0.4), rgba(40, 25, 5, 0.8));
     z-index: 2;
 }
@@ -471,22 +626,7 @@ button.secondary:hover {
     position: relative;
     z-index: 10;
     max-width: 800px;
-    padding: 0 var(--spacing-md);
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    color: var(--cream);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: #fff;
-    /* Keep white for contrast on overlay */
-    margin-bottom: var(--spacing-lg);
-    opacity: 1;
 }
 
 .trust-line {
@@ -498,19 +638,18 @@ button.secondary:hover {
     font-weight: 700;
 }
 
-/* 7. Components (Cards, Grids) */
+/* 9. Grids & Cards (Responsive) */
 .section {
     padding: var(--spacing-xl) 0;
 }
 
-.bg-dark {
-    background-color: var(--cream) !important;
-}
-
+.bg-dark,
 .bg-dark-alt {
     background-color: var(--cream) !important;
 }
 
+/* Responsive Grid using auto-fit minmax - NO MEDIA QUERIES NEEDED for layout */
+/* Responsive Grid using auto-fit minmax */
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -519,17 +658,13 @@ button.secondary:hover {
 
 .card,
 .review-card,
-.price-breakdown,
 .faq-item,
 .step-card,
-.ingredient-card,
-.product-card {
+.ingredient-card {
     background: var(--cream);
     border: 2px solid var(--green);
     border-radius: 16px;
     padding: var(--spacing-lg);
-    box-shadow: none;
-    /* User didn't specify shadow, but Flat/Border look implies minimal shadow */
     transition: transform 0.3s;
     color: var(--green);
 }
@@ -546,7 +681,7 @@ button.secondary:hover {
     margin-bottom: var(--spacing-md);
 }
 
-/* Step Card Steps */
+/* Steps */
 .step-number {
     width: 40px;
     height: 40px;
@@ -560,51 +695,65 @@ button.secondary:hover {
     margin: 0 auto var(--spacing-md);
 }
 
-/* Product Section */
+/* 10. Product Layout */
 .product-layout {
     display: flex;
     gap: var(--spacing-xl);
     align-items: flex-start;
 }
 
-.product-img-col {
-    flex: 1;
-    min-width: 300px;
-    /* Ensure it doesn't collapse */
-    position: relative;
-    /* Ensure slider is contained */
+/* Responsive Product Layout */
+/* Product Controls (Mobile Stack) */
+@media (max-width: 1024px) {
+    .product-layout {
+        flex-direction: column;
+    }
+
+    .product-img-col,
+    .product-details-col {
+        width: 100%;
+    }
+
+
+    .product-img-col {
+        /* Center image on mobile */
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
 
-/* Product Slider */
-/* Product Slider */
+/* Desktop Styles (Default) */
+.product-img-col {
+    flex: 1 0 45%;
+    /* Basis 45% to ensure width */
+    min-width: 320px;
+    position: relative;
+}
+
+.product-details-col {
+    flex: 1 1 45%;
+}
+
 .product-slider {
     display: grid;
     grid-template-areas: "stack";
     width: 100%;
-    /* Enforce a clean aspect ratio to prevent layout jumps or empty space */
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-lg);
     border: 2px solid var(--green);
     overflow: hidden;
     position: relative;
     background: var(--cream);
-    /* Prevent transparency issues */
 }
 
 .product-slide {
     grid-area: stack;
     width: 100%;
     height: 100%;
-    /* Fill the aspect ratio container */
     object-fit: cover;
-    /* Ensure image covers the area without distortion */
-    display: block;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    border-radius: 10px;
-    /* Slightly less than container to fit cleanly if needed, or match */
     pointer-events: none;
-    /* Prevent interaction with hidden slides */
 }
 
 .product-slide.active {
@@ -613,75 +762,15 @@ button.secondary:hover {
     pointer-events: auto;
 }
 
-/* Ensure First Image is Visible Fallback (if JS fails) is handled by HTML .active class */
-/* No specific CSS needed as .active { opacity: 1 } covers it */
-
-.product-details-col h3,
-.section-title {
-    color: var(--green);
-}
-
-/* Responsive Product Layout */
-@media (max-width: 768px) {
-    .product-layout.flex {
-        flex-direction: column;
-    }
-
-    .product-img-col {
-        width: 100%;
-        margin-bottom: var(--spacing-md);
-    }
-}
-
-.product-details-col h3,
-.section-title {
-    color: var(--green);
-}
-
-.price-box {
+/* Product Controls */
+.order-controls,
+.price-display {
     background: rgba(56, 102, 65, 0.05);
     padding: var(--spacing-md);
     border-radius: 12px;
-    border: 2px solid var(--green);
-    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--green);
 }
 
-.price-highlight {
-    color: var(--orange);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-/* Inputs */
-input,
-select {
-    background: var(--cream);
-    color: var(--green);
-    border: 2px solid var(--green);
-    border-radius: 12px;
-    padding: 12px;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    border-color: var(--orange);
-}
-
-input::placeholder,
-select::placeholder {
-    color: var(--green);
-    opacity: 0.7;
-}
-
-label {
-    color: var(--green);
-    font-weight: 600;
-}
-
-/* Size Buttons */
 .size-btn {
     padding: 8px 16px;
     border: 2px solid var(--green);
@@ -690,11 +779,18 @@ label {
     border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
+    margin-right: 5px;
 }
 
 .size-btn.active {
     background: var(--green);
     color: var(--cream);
+}
+
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .qty-selector button {
@@ -714,66 +810,61 @@ label {
 }
 
 .qty-selector input {
-    width: 60px;
+    width: 40px;
+    text-align: center;
     background: transparent;
     border: none;
     font-size: 1.2rem;
     color: var(--green);
     font-weight: 700;
-    margin: 0;
 }
 
-/* Ingredients Grid */
+/* 11. Ingredients Grid (Auto-Fit) */
 .ingredients-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 26px;
+    /* Responsive auto-fit grid */
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: var(--spacing-md);
 }
 
 .ingredient-card {
-    border-radius: 26px;
-    overflow: hidden;
     padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    /* Ensure match */
 }
 
 .ingredient-card .img-wrap {
     width: 100%;
     aspect-ratio: 16 / 9;
+    /* Enforce consistent ratio */
     overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid var(--green);
+    background: #f0f0f0;
+    /* Fallback */
 }
+
+
 
 .ingredient-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
-    /* IMPORTANT */
-    display: block;
+    transition: transform 0.5s;
 }
 
-/* Responsive Ingredients */
-@media (max-width: 1200px) {
-    .ingredients-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.ingredient-card:hover img {
+    transform: scale(1.1);
 }
 
-@media (max-width: 700px) {
-    .ingredients-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-/* Footer */
+/* 12. Footer */
 .footer {
     background: var(--green);
-    border-top: none;
+    color: var(--cream);
     padding: var(--spacing-xl) 0 var(--spacing-md);
-    color: var(--cream);
-}
-
-.footer h5 {
-    color: var(--cream);
 }
 
 .social-icon {
@@ -789,33 +880,22 @@ label {
     transition: all 0.3s ease;
 }
 
-.social-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 2;
-}
-
 .social-icon:hover {
     background: var(--orange);
     color: var(--cream);
-    border-color: var(--orange);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(251, 133, 0, 0.3);
 }
 
 .footer .text-muted {
     color: rgba(255, 230, 167, 0.6);
 }
 
-/* Floating WhatsApp (Mobile) */
+/* Floating WhatsApp */
 .floating-whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 60px;
     height: 60px;
-    background: #25D366;
-    /* Official WhatsApp Color overrides theme for recognition, or use orange? keeping official/green is usually safer for UX, but user asked for orange palette. Let's stick to standard WA color or Green from palette. */
     background: var(--green);
     color: var(--cream);
     border: 2px solid var(--cream);
@@ -842,33 +922,5 @@ label {
 @media (min-width: 769px) {
     .floating-whatsapp {
         display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .floating-whatsapp {
-        display: flex;
-    }
-
-    .sidebar {
-        width: 220px;
-    }
-
-    .menu-item {
-        font-size: 0.95rem;
-        padding: 10px 14px;
-    }
-
-    .brand-title {
-        font-size: 1.1rem;
-    }
-
-    .mobile-header {
-        background: var(--green);
-        border-bottom: 1px solid rgba(255, 230, 167, 0.1);
-    }
-
-    .grid-3 {
-        grid-template-columns: 1fr;
     }
 }

@@ -30,412 +30,424 @@
         <span class="mobile-brand-name">Organic Meal</span>
     </div>
 
-    <!-- Sidebar (Fixed Left) -->
-    <aside class="sidebar" id="sidebar">
-        <button class="close-sidebar visible-mobile" onclick="toggleSidebar()">&times;</button>
+    <div class="layout-wrapper">
+        <!-- Sidebar (Fixed Left) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <button class="close-sidebar visible-mobile" onclick="toggleSidebar()">&times;</button>
 
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-brand">
-                <img src="assets/img/logo.jpg" alt="Organic Meal" class="sidebar-logo">
-            </a>
-            <h3 class="brand-title">Organic Meal</h3>
-            <span class="brand-tagline">Tired of saying "no" to every sweet? We fixed that.</span>
-        </div>
-
-        <nav class="sidebar-menu">
-            <a href="index.html" class="menu-item active">
-                <span class="icon">🏠</span> Home
-            </a>
-            <a href="#product-preview" class="menu-item">
-                <span class="icon">📦</span> Product
-            </a>
-            <a href="#ingredients" class="menu-item">
-                <span class="icon">🌿</span> Ingredients
-            </a>
-            <a href="#reviews" class="menu-item">
-                <span class="icon">⭐</span> Reviews
-            </a>
-        </nav>
-
-        <div class="sidebar-footer">
-            <a href="https://wa.me/923274892884" target="_blank" class="btn btn-whatsapp-sidebar">
-                <span>Order on WhatsApp</span>
-                <span class="phone-number">0327-4892884</span>
-            </a>
-        </div>
-    </aside>
-
-    <!-- Overlay for Mobile -->
-    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
-    <!-- Main Content Wrapper -->
-    <main class="main-content">
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <!-- Slider Backgrounds -->
-            <div class="hero-slider">
-                <div class="hero-slide active" style="background-image: url('assets/img/hero-1.jpg');"></div>
-                <div class="hero-slide" style="background-image: url('assets/img/hero-2.jpg');"></div>
-            </div>
-
-            <!-- Overlay (Fixed on top of slider) -->
-            <div class="hero-overlay"></div>
-
-            <!-- Content -->
-            <div class="container relative z-10 text-center text-white hero-content">
-                <h1 class="hero-title">Tired of saying "no" to every sweet?</h1>
-                <p class="hero-subtitle">
-                    Diabetes doesn’t mean no taste.<br>
-                    Enjoy a healthy snack that satisfies cravings without guilt.
-                </p>
-                <div class="hero-actions flex justify-center gap-md flex-wrap">
-                    <a href="#product-preview" class="btn btn-primary">View Product</a>
-                    <a href="https://wa.me/923274892884" target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+                <div class="sidebar-header">
+                    <a class='sidebar-brand' href='/'>
+                        <img src="assets/img/logo.jpg" alt="Organic Meal" class="sidebar-logo">
+                    </a>
+                    <h3 class="brand-title">Organic Meal</h3>
+                    <span class="brand-tagline">Tired of saying "no" to every sweet? We fixed that.</span>
                 </div>
-                <p class="trust-line">Made fresh only after you order • No bulk stock • No old batches</p>
-            </div>
-        </section>
 
-        <!-- Product Highlights -->
-        <section class="section">
-            <div class="container">
-                <div class="grid-3 text-center">
-                    <div class="card">
-                        <div class="icon-lg">🍃</div>
-                        <h3>Made Fresh on Order</h3>
-                        <p>Prepared only after you place your order. No bulk stock. No old batches.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-lg">✨</div>
-                        <h3>Guilt-Free Snacking</h3>
-                        <p>Finally, a snack you don’t feel guilty eating. Clean, balanced, and homemade.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-lg">⚡</div>
-                        <h3>Taste Without Fear</h3>
-                        <p>Diabetes doesn’t mean no taste. Real ingredients. Real flavor.</p>
-                    </div>
+                <nav class="sidebar-menu">
+                    <a class='menu-item active' href='/'>
+                        <span class="icon">🏠</span> Home
+                    </a>
+                    <a href="#product-preview" class="menu-item">
+                        <span class="icon">📦</span> Product
+                    </a>
+                    <a href="#ingredients" class="menu-item">
+                        <span class="icon">🌿</span> Ingredients
+                    </a>
+                    <a href="#reviews" class="menu-item">
+                        <span class="icon">⭐</span> Reviews
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <a href="https://wa.me/923274892884" target="_blank" class="btn btn-whatsapp-sidebar">
+                        <span>Order on WhatsApp</span>
+                        <span class="phone-number">0327-4892884</span>
+                    </a>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- Product Section -->
-        <section id="product-preview" class="section">
-            <div class="container">
-                <div class="product-layout flex gap-xl items-start">
-                    <!-- Left: Product Image Slider -->
-                    <div class="product-img-col">
-                        <div class="product-slider">
-                            <img src="assets/img/product.jpg" alt="DiaFit Energy Balls Tray"
-                                class="product-slide active">
-                            <img src="assets/img/product-close.jpg" alt="DiaFit Energy Balls Close Up"
-                                class="product-slide">
+        <!-- Overlay for Mobile -->
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-content">
+
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <!-- Slider Backgrounds -->
+                <div class="hero-slider">
+                    <div class="hero-slide active" style="background-image: url('assets/img/hero-1.jpg');"></div>
+                    <div class="hero-slide" style="background-image: url('assets/img/hero-2.jpg');"></div>
+                </div>
+
+                <!-- Overlay (Fixed on top of slider) -->
+                <div class="hero-overlay"></div>
+
+                <!-- Content -->
+                <div class="container relative z-10 text-center text-white hero-content">
+                    <h1 class="hero-title">Tired of saying "no" to every sweet?</h1>
+                    <p class="hero-subtitle">
+                        Diabetes doesn’t mean no taste.<br>
+                        Enjoy a healthy snack that satisfies cravings without guilt.
+                    </p>
+                    <div class="hero-actions flex justify-center gap-md flex-wrap">
+                        <a href="#product-preview" class="btn btn-primary">View Product</a>
+                        <a href="https://wa.me/923274892884" target="_blank" class="btn btn-whatsapp">Order on
+                            WhatsApp</a>
+                    </div>
+                    <p class="trust-line">Made fresh only after you order • No bulk stock • No old batches</p>
+                </div>
+            </section>
+
+            <!-- Product Highlights -->
+            <section class="section">
+                <div class="container">
+                    <div class="grid-3 text-center">
+                        <div class="card">
+                            <div class="icon-lg">🍃</div>
+                            <h3>Made Fresh on Order</h3>
+                            <p>Prepared only after you place your order. No bulk stock. No old batches.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon-lg">✨</div>
+                            <h3>Guilt-Free Snacking</h3>
+                            <p>Finally, a snack you don’t feel guilty eating. Clean, balanced, and homemade.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon-lg">⚡</div>
+                            <h3>Taste Without Fear</h3>
+                            <p>Diabetes doesn’t mean no taste. Real ingredients. Real flavor.</p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- Right: Product Details -->
-                    <div class="product-details-col">
-                        <h2 class="section-title text-left">Finally, a Snack You Don’t Feel Guilty Eating</h2>
-                        <p class="product-desc">
-                            Most snacks force you to choose between taste and health. These don’t.<br>
-                            Our DiaFit Energy Balls are made for people who want real taste without harming their
-                            health. Naturally sweetened, carefully prepared, and safe for everyday use.
+            <!-- Product Section -->
+            <section id="product-preview" class="section">
+                <div class="container">
+                    <div class="product-layout flex gap-xl items-start">
+                        <!-- Left: Product Image Slider -->
+                        <div class="product-img-col">
+                            <div class="product-slider">
+                                <img src="assets/img/product.jpg" alt="DiaFit Energy Balls Tray"
+                                    class="product-slide active" loading="eager">
+                                <img src="assets/img/product-close.jpg" alt="DiaFit Energy Balls Close Up"
+                                    class="product-slide">
+                            </div>
+                        </div>
+
+                        <!-- Right: Product Details -->
+                        <div class="product-details-col">
+                            <h2 class="section-title text-left">Finally, a Snack You Don’t Feel Guilty Eating</h2>
+                            <p class="product-desc">
+                                Most snacks force you to choose between taste and health. These don’t.<br>
+                                Our DiaFit Energy Balls are made for people who want real taste without harming their
+                                health. Naturally sweetened, carefully prepared, and safe for everyday use.
+                            </p>
+
+                            <ul class="benefits-list">
+                                <li>✅ <strong>Sugar-Free:</strong> Sweetened naturally — no refined sugar, no sugar
+                                    spikes.
+                                </li>
+                                <li>✅ <strong>High Protein:</strong> Nuts and seeds that keep you full for longer.</li>
+                                <li>✅ <strong>Heart Healthy:</strong> Made with pure desi ghee and omega-rich
+                                    ingredients.
+                                </li>
+                                <!-- <li>✅ <strong>Sustained Energy:</strong> No crash, no heaviness — just steady energy.</li> -->
+                                <!-- <li>✅ <strong>Diabetic-Friendly:</strong> Balanced for sugar-conscious lifestyles.</li> -->
+                                <!-- <li>✅ <strong>Family Safe:</strong> Elders, women, and active people can enjoy it daily.
+                                </li> -->
+                            </ul>
+
+                            <!-- Size & Quantity -->
+                            <div class="order-controls mb-md">
+                                <div class="control-group">
+                                    <label>Pack Size</label>
+                                    <div class="size-options">
+                                        <button class="size-btn active" onclick="selectSize('500g', 2500)">500g</button>
+                                    </div>
+                                    <p class="text-muted text-sm" style="margin-top: 5px; font-size: 0.85rem;">Perfect
+                                        for
+                                        first-time buyers and daily use.</p>
+                                </div>
+                                <div class="control-group">
+                                    <label>Quantity</label>
+                                    <div class="qty-selector">
+                                        <button onclick="updateQty(-1)">-</button>
+                                        <input type="number" id="qty" value="1" min="1" readonly>
+                                        <button onclick="updateQty(1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="price-display mb-md">
+                                <span class="price-label">Total:</span>
+                                <span class="price-value" id="totalPrice">Rs 2500</span>
+                            </div>
+
+                            <!-- CTA -->
+                            <a href="#" onclick="orderNow()" class="btn btn-whatsapp-lg w-full mb-sm">
+                                Order Now on WhatsApp
+                            </a>
+
+                            <p class="payment-policy-text">
+                                Made fresh only after you order • No bulk stock • No old batches
+                            </p>
+                            <p class="text-center text-sm text-muted" style="margin-top: 5px;">
+                                Prepared fresh for every order. Limited daily batches.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ingredients Section -->
+            <section id="ingredients" class="section bg-dark-alt">
+                <div class="container">
+                    <div class="text-center mb-lg">
+                        <h2 class="section-title">Ingredients</h2>
+                        <p class="section-subtitle">Pure • Natural • Desi</p>
+                    </div>
+
+                    <div class="ingredients-grid">
+                        <!-- 1. Chickpeas -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/chickpeas.jpg" alt="Chickpeas" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 2. Flax Seeds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/flaxseeds.jpg" alt="Flax Seeds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 3. Caltrop -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/caltrops.jpg" alt="Caltrop" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 4. Poppy Seeds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/poppy-seeds.jpg" alt="Poppy Seeds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 5. Pumpkin Seeds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/pumpkin-seeds.jpg" alt="Pumpkin Seeds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 6. Lotus Seeds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/lotus-seeds.jpg" alt="Lotus Seeds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 7. Gum Tragacanth -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/tragacanth-gum.jpg" alt="Gum Tragacanth"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 8. Coconut -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/coconut.jpg" alt="Coconut" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 9. Sesame Seeds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/sesame-seeds.jpg" alt="Sesame Seeds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 10. Turmeric -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/turmeric.png" alt="Turmeric" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 11. Walnuts -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/walnuts.png" alt="Walnuts" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 12. Pistachios -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/pistachios.jpg" alt="Pistachios" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 13. Almonds -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/almonds.jpg" alt="Almonds" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 14. Dates -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/dates.png" alt="Dates" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 15. Cashew Nuts -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/cashews.png" alt="Cashew Nuts" loading="lazy">
+                            </div>
+                        </div>
+                        <!-- 16. Clarified Butter (Desi Ghee) -->
+                        <div class="ingredient-card">
+                            <div class="img-wrap">
+                                <img src="assets/img/ingredients/desi-ghee.jpg" alt="Clarified Butter (Desi Ghee)"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section id="how-it-works" class="section">
+                <div class="container text-center">
+                    <h2 class="section-title">How To Order</h2>
+                    <p class="section-subtitle">Simple 3-step process to get fresh nutrition delivered.</p>
+
+                    <div class="steps-grid grid-3">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Place Order</h4>
+                            <p>Message us on WhatsApp with your details and quantity.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Confirm (50% Pay)</h4>
+                            <p>Pay 50% advance to confirm your order (JazzCash/EasyPaisa).</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Delivery (COD)</h4>
+                            <p>Receive your fresh box and pay the remaining 50% on delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews -->
+            <section id="reviews" class="section bg-dark">
+                <div class="container">
+                    <h2 class="section-title text-center">What Customers Say</h2>
+                    <div class="reviews-slider grid-3">
+                        <!-- Review 1 -->
+                        <div class="review-card">
+                            <p>"Absolutely delicious! Tastes just like my grandmother used to make. Very fresh."</p>
+                            <div class="reviewer">- Sarah A.</div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="review-card">
+                            <p>"Best snack for office. Gives me energy without the sugar crash."</p>
+                            <div class="reviewer">- Ahmed K.</div>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="review-card">
+                            <p>"Packaging was excellent and the balls were super soft and fresh."</p>
+                            <div class="reviewer">- Fatima Z.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="section">
+                <div class="container max-w-800">
+                    <h2 class="section-title text-center">Frequently Asked Questions</h2>
+
+                    <div class="faq-item">
+                        <h4>Why 50% advance?</h4>
+                        <p>Since we prepare freshly on order using premium ingredients, the advance payment confirms
+                            your
+                            serious intent and helps us manage fresh stock.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>How do I pay the advance?</h4>
+                        <p>We accept JazzCash, EasyPaisa, and Bank Transfer. Details will be shared on WhatsApp when you
+                            order.
                         </p>
+                    </div>
 
-                        <ul class="benefits-list">
-                            <li>✅ <strong>Sugar-Free:</strong> Sweetened naturally — no refined sugar, no sugar spikes.
-                            </li>
-                            <li>✅ <strong>High Protein:</strong> Nuts and seeds that keep you full for longer.</li>
-                            <li>✅ <strong>Heart Healthy:</strong> Made with pure desi ghee and omega-rich ingredients.
-                            </li>
-                            <!-- <li>✅ <strong>Sustained Energy:</strong> No crash, no heaviness — just steady energy.</li> -->
-                            <!-- <li>✅ <strong>Diabetic-Friendly:</strong> Balanced for sugar-conscious lifestyles.</li> -->
-                            <!-- <li>✅ <strong>Family Safe:</strong> Elders, women, and active people can enjoy it daily.
-                            </li> -->
-                        </ul>
+                    <div class="faq-item">
+                        <h4>What is the delivery time?</h4>
+                        <p>Usually 2-3 days for preparation + delivery time depending on your city.</p>
+                    </div>
 
-                        <!-- Size & Quantity -->
-                        <div class="order-controls mb-md">
-                            <div class="control-group">
-                                <label>Pack Size</label>
-                                <div class="size-options">
-                                    <button class="size-btn active" onclick="selectSize('500g', 2500)">500g</button>
-                                </div>
-                                <p class="text-muted text-sm" style="margin-top: 5px; font-size: 0.85rem;">Perfect for
-                                    first-time buyers and daily use.</p>
-                            </div>
-                            <div class="control-group">
-                                <label>Quantity</label>
-                                <div class="qty-selector">
-                                    <button onclick="updateQty(-1)">-</button>
-                                    <input type="number" id="qty" value="1" min="1" readonly>
-                                    <button onclick="updateQty(1)">+</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="faq-item">
+                        <h4>Is this for Diabetes patients?</h4>
+                        <p>Yes, it is mainly for diabetes patients.</p>
+                    </div>
+                </div>
+            </section>
 
-                        <!-- Price Display -->
-                        <div class="price-display mb-md">
-                            <span class="price-label">Total:</span>
-                            <span class="price-value" id="totalPrice">Rs 2500</span>
-                        </div>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container flex flex-col items-center gap-md">
 
-                        <!-- CTA -->
-                        <a href="#" onclick="orderNow()" class="btn btn-whatsapp-lg w-full mb-sm">
-                            Order Now on WhatsApp
+                    <!-- Social Icons -->
+                    <div class="footer-socials flex gap-md">
+                        <a href="https://www.instagram.com/organicmeal_" target="_blank" class="social-icon"
+                            aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                         </a>
 
-                        <p class="payment-policy-text">
-                            Made fresh only after you order • No bulk stock • No old batches
-                        </p>
-                        <p class="text-center text-sm text-muted" style="margin-top: 5px;">
-                            Prepared fresh for every order. Limited daily batches.
-                        </p>
+                        <a href="https://www.facebook.com/profile.php?id=61586181895772" target="_blank"
+                            class="social-icon" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+
+                        <a href="https://wa.me/923274892884" target="_blank" class="social-icon" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Contact & Copyright -->
+                    <div class="footer-contact text-center">
+                        <p class="mb-xs font-semibold">WhatsApp: 0327-4892884</p>
+                        <p class="text-sm text-muted">&copy; 2026 Organic Meal. All rights reserved.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </footer>
 
-        <!-- Ingredients Section -->
-        <section id="ingredients" class="section bg-dark-alt">
-            <div class="container">
-                <div class="text-center mb-lg">
-                    <h2 class="section-title">Ingredients</h2>
-                    <p class="section-subtitle">Pure • Natural • Desi</p>
-                </div>
+        </main>
+    </div>
 
-                <div class="ingredients-grid">
-                    <!-- 1. Chickpeas -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/chickpeas.jpg" alt="Chickpeas" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 2. Flax Seeds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/flaxseeds.jpg" alt="Flax Seeds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 3. Caltrop -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/caltrops.jpg" alt="Caltrop" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 4. Poppy Seeds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/poppy-seeds.jpg" alt="Poppy Seeds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 5. Pumpkin Seeds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/pumpkin-seeds.jpg" alt="Pumpkin Seeds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 6. Lotus Seeds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/lotus-seeds.jpg" alt="Lotus Seeds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 7. Gum Tragacanth -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/tragacanth-gum.jpg" alt="Gum Tragacanth" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 8. Coconut -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/coconut.jpg" alt="Coconut" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 9. Sesame Seeds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/sesame-seeds.jpg" alt="Sesame Seeds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 10. Turmeric -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/turmeric.png" alt="Turmeric" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 11. Walnuts -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/walnuts.png" alt="Walnuts" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 12. Pistachios -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/pistachios.jpg" alt="Pistachios" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 13. Almonds -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/almonds.jpg" alt="Almonds" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 14. Dates -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/dates.png" alt="Dates" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 15. Cashew Nuts -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/cashews.png" alt="Cashew Nuts" loading="lazy">
-                        </div>
-                    </div>
-                    <!-- 16. Clarified Butter (Desi Ghee) -->
-                    <div class="ingredient-card">
-                        <div class="img-wrap">
-                            <img src="assets/img/ingredients/desi-ghee.jpg" alt="Clarified Butter (Desi Ghee)"
-                                loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section id="how-it-works" class="section">
-            <div class="container text-center">
-                <h2 class="section-title">How To Order</h2>
-                <p class="section-subtitle">Simple 3-step process to get fresh nutrition delivered.</p>
-
-                <div class="steps-grid grid-3">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h4>Place Order</h4>
-                        <p>Message us on WhatsApp with your details and quantity.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h4>Confirm (50% Pay)</h4>
-                        <p>Pay 50% advance to confirm your order (JazzCash/EasyPaisa).</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h4>Delivery (COD)</h4>
-                        <p>Receive your fresh box and pay the remaining 50% on delivery.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reviews -->
-        <section id="reviews" class="section bg-dark">
-            <div class="container">
-                <h2 class="section-title text-center">What Customers Say</h2>
-                <div class="reviews-slider grid-3">
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <p>"Absolutely delicious! Tastes just like my grandmother used to make. Very fresh."</p>
-                        <div class="reviewer">- Sarah A.</div>
-                    </div>
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <p>"Best snack for office. Gives me energy without the sugar crash."</p>
-                        <div class="reviewer">- Ahmed K.</div>
-                    </div>
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <p>"Packaging was excellent and the balls were super soft and fresh."</p>
-                        <div class="reviewer">- Fatima Z.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="section">
-            <div class="container max-w-800">
-                <h2 class="section-title text-center">Frequently Asked Questions</h2>
-
-                <div class="faq-item">
-                    <h4>Why 50% advance?</h4>
-                    <p>Since we prepare freshly on order using premium ingredients, the advance payment confirms your
-                        serious intent and helps us manage fresh stock.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>How do I pay the advance?</h4>
-                    <p>We accept JazzCash, EasyPaisa, and Bank Transfer. Details will be shared on WhatsApp when you
-                        order.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>What is the delivery time?</h4>
-                    <p>Usually 2-3 days for preparation + delivery time depending on your city.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Is this for Diabetes patients?</h4>
-                    <p>Yes, it is mainly for diabetes patients.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container flex flex-col items-center gap-md">
-
-                <!-- Social Icons -->
-                <div class="footer-socials flex gap-md">
-                    <a href="https://www.instagram.com/organicmeal_" target="_blank" class="social-icon"
-                        aria-label="Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-
-                    <a href="https://www.facebook.com/profile.php?id=61586181895772" target="_blank" class="social-icon"
-                        aria-label="Facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
-
-                    <a href="https://wa.me/923274892884" target="_blank" class="social-icon" aria-label="WhatsApp">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Contact & Copyright -->
-                <div class="footer-contact text-center">
-                    <p class="mb-xs font-semibold">WhatsApp: 0327-4892884</p>
-                    <p class="text-sm text-muted">&copy; 2026 Organic Meal. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Floating WhatsApp (Mobile) -->
-        <a href="https://wa.me/923274892884" target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
-            <svg viewBox="0 0 24 24" fill="white">
-                <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-        </a>
+    <!-- Floating WhatsApp (Mobile) -->
+    <a href="https://wa.me/923274892884" target="_blank" class="floating-whatsapp" aria-label="Order on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     </main>
     <script src="assets/js/main.js"></script>

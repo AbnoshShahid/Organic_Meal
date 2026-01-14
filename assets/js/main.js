@@ -18,9 +18,14 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
 
-    if (sidebar && overlay) {
+    if (sidebar) {
         sidebar.classList.toggle('open');
-        overlay.classList.toggle('active');
+        document.body.classList.toggle('sidebar-open');
+
+        // Overlay logic if we still rely on it for clicking outside, 
+        // though full screen sidebar might cover it. 
+        // Keeping it for consistency if it exists.
+        if (overlay) overlay.classList.toggle('active');
     }
 }
 
@@ -29,9 +34,11 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
+
         if (sidebar && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
-            overlay.classList.remove('active');
+            document.body.classList.remove('sidebar-open');
+            if (overlay) overlay.classList.remove('active');
         }
     }
 });
