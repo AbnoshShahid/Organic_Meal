@@ -88,7 +88,6 @@ body {
 }
 
 /* Scroll Lock caused by sidebar */
-/* Scroll Lock caused by sidebar */
 body.drawer-open {
     overflow: hidden;
     height: 100vh;
@@ -170,8 +169,6 @@ hr,
 }
 
 /* 3. Layout Grid System (Desktop First -> Mobile) */
-/* 3. Layout Grid System (Desktop First -> Mobile) */
-/* 3. Layout Grid System (Desktop First -> Mobile) */
 .layout-wrapper,
 .layout {
     display: grid;
@@ -183,8 +180,6 @@ hr,
     gap: 0;
 }
 
-/* Sidebar Styling - Sticky Desktop (1025px+) */
-/* Sidebar Styling - Sticky Desktop (1025px+) */
 /* Sidebar Styling - Sticky Desktop (1025px+) */
 .sidebar {
     /* Sticky ensures it stays in view, but stretch height fills the track */
@@ -253,7 +248,6 @@ hr,
 }
 
 /* Main Content Styling */
-/* Main Content Styling */
 .main-content,
 .main {
     position: relative;
@@ -278,8 +272,6 @@ hr,
     padding: var(--spacing-lg) 0;
 }
 
-/* Mobile Layout (Tablet and below) */
-/* Mobile Layout (Tablet and below) */
 /* Mobile Layout (Tablet and below) */
 @media (max-width: 1024px) {
     body {
@@ -338,7 +330,6 @@ hr,
 }
 
 /* Fluid Typography using clamp() */
-/* Fluid Typography Redefines (ensuring specific classes match) */
 .hero-title {
     font-size: clamp(2.2rem, 6vw, 4.2rem);
     color: var(--cream);
@@ -464,7 +455,6 @@ hr,
     }
 }
 
-/* 5. Mobile Header */
 /* 5. Mobile Header */
 .mobile-header {
     display: none;
@@ -773,7 +763,6 @@ button.primary:hover {
 }
 
 /* Responsive Grid using auto-fit minmax - NO MEDIA QUERIES NEEDED for layout */
-/* Responsive Grid using auto-fit minmax */
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

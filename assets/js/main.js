@@ -131,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 7. Mobile Sidebar Navigation --- */
     // Handle click on sidebar links to close drawer and scroll
-    // Handle click on sidebar links to close drawer and scroll
     const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (e) => {
