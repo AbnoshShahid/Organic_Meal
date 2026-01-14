@@ -20,12 +20,14 @@ function toggleSidebar() {
 
     if (sidebar) {
         sidebar.classList.toggle('open');
-        document.body.classList.toggle('sidebar-open');
+        document.body.classList.toggle('drawer-open');
 
         // Overlay logic if we still rely on it for clicking outside, 
         // though full screen sidebar might cover it. 
         // Keeping it for consistency if it exists.
-        if (overlay) overlay.classList.toggle('active');
+        if (overlay) {
+            overlay.classList.toggle('active');
+        }
     }
 }
 
@@ -37,11 +39,23 @@ document.addEventListener('keydown', (e) => {
 
         if (sidebar && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
-            document.body.classList.remove('sidebar-open');
+            document.body.classList.remove('drawer-open');
             if (overlay) overlay.classList.remove('active');
         }
     }
 });
+
+// Close sidebar on Overlay Click (if not handled in HTML onclick)
+// Adding explicit listener for robustness
+const overlayEl = document.getElementById('sidebar-overlay');
+if (overlayEl) {
+    overlayEl.addEventListener('click', () => {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && sidebar.classList.contains('open')) {
+            toggleSidebar();
+        }
+    });
+}
 
 /* --- 3. Product Logic --- */
 function selectSize(size, price) {

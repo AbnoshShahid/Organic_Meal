@@ -62,8 +62,10 @@ body {
 }
 
 /* Scroll Lock caused by sidebar */
-body.sidebar-open {
-    overflow: hidden !important;
+/* Scroll Lock caused by sidebar */
+body.drawer-open {
+    overflow: hidden;
+    height: 100vh;
 }
 
 /* Base Typography Updates */
@@ -196,6 +198,7 @@ hr,
 
 /* Mobile Layout (Tablet and below) */
 /* Mobile Layout (Tablet and below) */
+/* Mobile Layout (Tablet and below) */
 @media (max-width: 1024px) {
 
     .layout-wrapper,
@@ -206,6 +209,7 @@ hr,
 
     .main-content,
     .main {
+        position: relative;
         width: 100%;
         margin-left: 0;
         z-index: 1;
@@ -215,13 +219,14 @@ hr,
     .sidebar {
         position: fixed;
         inset: 0;
-        /* Full screen coverage */
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
+        /* Modern viewport unit */
         transform: translateX(-100%);
         z-index: 10000;
         /* Highest z-index */
         border-right: none;
+        overflow-y: auto;
     }
 
     .sidebar.open {
@@ -404,19 +409,22 @@ hr,
     cursor: pointer;
 }
 
+/* Backdrop / Overlay */
+.backdrop,
 .sidebar-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(56, 102, 65, 0.6);
-    z-index: 999;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 9999;
     opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
 }
 
+.backdrop.active,
 .sidebar-overlay.active {
     opacity: 1;
-    visibility: visible;
+    pointer-events: auto;
 }
 
 /* 6. Sidebar Content */
